@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function HeroSectionGradientBackground() {
   return (
     <>
-      <section className="relative w-full h-[80vh] flex items-center justify-center bg-gray-900">
+      <section className="relative w-full h-[80svh] flex items-center justify-center bg-gray-900">
         <Image
           src={HeroBG}
           alt="Hero Background"
