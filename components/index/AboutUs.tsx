@@ -3,7 +3,7 @@ import Poster from "@/public/index/poster.jpg";
 
 const About = () => {
   return (
-    <div className="container mx-auto bg-base-200 py-8 scroll-mt-16">
+    <div className="container mx-auto py-8 scroll-mt-16">
       <h1 className="text-5xl font-bold text-center mb-8">About Us</h1>
       <div className="container py-4 px-8 max-w-md md:max-w-3xl flex flex-wrap md:flex-nowrap justify-center mx-auto gap-16 content-center items-center">
         <Image

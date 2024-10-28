@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import Header from "@/components/layout/header/Header";
-import ErrorBanner from "@/components/layout/error/ErrorBanner";
+import TopBanner from "@/components/layout/banner/TopBanner";
 import Footer from "@/components/layout/Footer";
 
 const geistSans = localFont({
@@ -33,7 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        <ErrorBanner />
+        <TopBanner />
         <main className="">{children}</main>
         <Footer />
       </body>
