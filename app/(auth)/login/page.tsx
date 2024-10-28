@@ -6,6 +6,7 @@ import { z } from "zod";
 
 import useBannerStore from "@/lib/store/useBannerStore";
 import { useAuth } from "@/lib/firebase/useAuth";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,8 +18,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { PasswordInput } from "@/components/ui/password-input";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -81,7 +82,7 @@ function LoginPage() {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="" {...field} />
+                  <PasswordInput placeholder="" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
