@@ -1,3 +1,6 @@
+"use client";
+
+import { useAuth } from "@/lib/firebase/useAuth";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -5,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import links from "./links.json";
 
 const Navigation = () => {
+  const { user } = useAuth();
+
   return (
     <nav className="hidden md:flex items-center gap-4 lg:gap-6">
       {links.map(([title, link]) => (
@@ -16,9 +21,16 @@ const Navigation = () => {
           {title}
         </Link>
       ))}
-      <Link href="/login">
-        <Button>Login</Button>
-      </Link>
+      {!user && (
+        <Link href="/login">
+          <Button>Login</Button>
+        </Link>
+      )}
+      {user && (
+        <Link href="/account">
+          <Button>Account</Button>
+        </Link>
+      )}
     </nav>
   );
 };

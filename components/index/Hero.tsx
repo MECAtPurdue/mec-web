@@ -1,11 +1,10 @@
-// import { Button } from "@/components/ui/button";
 import HeroBG from "@/public/index/hero-bg.jpg";
 import Image from "next/image";
 
 export default function HeroSectionGradientBackground() {
   return (
     <>
-      <section className="relative w-full h-[80svh] flex items-center justify-center bg-gray-900">
+      <section className="relative w-full h-[80svh] flex items-center justify-center">
         <Image
           src={HeroBG}
           alt="Hero Background"
@@ -22,7 +21,6 @@ export default function HeroSectionGradientBackground() {
             <p className="text-lg text-gray-200 max-w-xl mx-auto md:text-xl">
               Where film lovers unite!
             </p>
-            {/* <Button variant="secondary">Join Us</Button> */}
           </div>
         </div>
       </section>
