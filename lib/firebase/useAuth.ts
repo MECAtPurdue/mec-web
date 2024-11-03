@@ -5,16 +5,35 @@ import {
   signOut,
   sendEmailVerification,
   signInWithEmailAndPassword,
-  User,
 } from "firebase/auth";
+import { getUser } from "@/lib/firebase/useFirestore";
+import type { User } from "firebase/auth";
 
 export const useAuth = () => {
   const [user, setUser] = useState<User | null>(null);
+  const [isAdmin, setIsAdmin] = useState<Boolean>(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
+
+      if (!user) {
+        setIsAdmin(false);
+        return;
+      }
+
+      (async () => {
+        const [userData, error] = await getUser(user.uid);
+
+        if (error || !userData || userData.role !== "admin") {
+          setIsAdmin(false);
+          return;
+        }
+
+        setIsAdmin(true);
+      })();
     });
+
     return () => unsubscribe();
   }, []);
 
@@ -34,5 +53,6 @@ export const useAuth = () => {
     signOut: sOut,
     sendVerification,
     signIn,
+    isAdmin,
   };
 };

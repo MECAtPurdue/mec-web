@@ -1,5 +1,6 @@
 import { auth } from "@/lib/firebase/firebase-admin";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 interface Body {
   email: string;
@@ -17,7 +18,7 @@ export const POST = async (req: NextRequest) => {
       JSON.stringify({
         message: `Email must belong to the ${allowedDomain} domain`,
       }),
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -29,12 +30,12 @@ export const POST = async (req: NextRequest) => {
 
     return new NextResponse(
       JSON.stringify({ message: "User created successfully" }),
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error) {
     return new NextResponse(
       JSON.stringify({ message: `Error creating user ${error}` }),
-      { status: 500 }
+      { status: 500 },
     );
   }
 };

@@ -1,7 +1,7 @@
 import admin from "firebase-admin";
 
 const serviceAccount = JSON.parse(
-  process.env.FIREBASE_ADMIN_CREDENTIALS || "{}"
+  process.env.FIREBASE_ADMIN_CREDENTIALS || "{}",
 );
 
 if (!admin.apps.length) {
@@ -11,3 +11,4 @@ if (!admin.apps.length) {
 }
 
 export const auth = admin.auth();
+export const firestore = admin.firestore();
